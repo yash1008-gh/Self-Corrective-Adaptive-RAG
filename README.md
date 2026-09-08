@@ -46,4 +46,40 @@ Depending on the result, the graph can retry generation or transform the query b
 
 ## Workflow
 
-![alt text](image.png)
+```text
+                         User Query
+                              │
+                       ┌──────▼──────┐
+                       │ Query Router │
+                       └──────┬──────┘
+                         /           \
+                        /             \
+               Vector Store         Web Search
+                    │                    │
+                    ▼                    │
+              Retrieve Docs              │
+                    │                    │
+                    ▼                    │
+             Grade Documents             │
+                    │                    │
+              Relevant Docs?              │
+                /       \                 │
+              No         Yes              │
+              │           │              │
+              ▼           │              │
+        Rewrite Query      │              │
+              │           │              │
+              └─────► Retrieve            │
+                          │               │
+                          └───────┬───────┘
+                                  ▼
+                              Generate
+                                  │
+                                  ▼
+                         Grade Generation
+                            /         \
+                           /           \
+                    Not Supported     Useful
+                         │              │
+                         ▼              ▼
+                      Retry            END
