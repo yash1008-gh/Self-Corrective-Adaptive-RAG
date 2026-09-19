@@ -4,8 +4,6 @@ A practice implementation of an advanced Retrieval-Augmented Generation (RAG) sy
 
 Unlike a basic `retrieve → generate` pipeline, this system uses routing, document grading, query rewriting, web search, and answer validation to make the retrieval process more reliable.
 
-The project was initially developed as a notebook and later converted into a Python script using LangChain and LangGraph.
-
 ## Overview
 
 The system first determines whether a question is best answered using the local knowledge base or an external web search.
